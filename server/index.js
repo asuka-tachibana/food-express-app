@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const Dish = require('./Dish');
 const app = express();
 
+app.use(express.json());
+
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
@@ -27,8 +29,23 @@ app.get('/about', (req, res) => {
     res.send('About Page');
 });
 
-app.get('/contact', (req, res) => {
-    res.send('Contact Page');
+app.post('/contact', async (req, res) => {
+    try {
+        const { name, email, message } = req.body; // Extract data from the request body
+
+        const newContact = new Contact({ // Create a new contact document
+            name,
+            email,
+            message
+        });
+
+        await newContact.save(); // Save the document to the database
+
+        res.json(newContact); // Send the saved document as a response
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 const PORT = process.env.PORT || 5000;
