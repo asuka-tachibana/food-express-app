@@ -2,10 +2,6 @@
 
 This application is designed to help users order food online. It's built using ReactJS for the client side, ExpressJS for the server side, and MongoDB for the database.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 ### Prerequisites
 
 What you need to install the software and how to install them:
