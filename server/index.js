@@ -19,10 +19,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-app.get('/', (req, res) => {
-    res.send('Home Page');
-});
-
 app.get('/menu', async (req, res) => {
     try {
         const dishes = await Dish.find({ available: true }); // Only return dishes that are available
@@ -31,10 +27,6 @@ app.get('/menu', async (req, res) => {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
-});
-
-app.get('/about', (req, res) => {
-    res.send('About Page');
 });
 
 app.post('/contact', async (req, res) => {
