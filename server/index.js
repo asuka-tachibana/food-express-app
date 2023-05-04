@@ -7,6 +7,12 @@ const Contact = require('./Contact');
 
 const app = express();
 
+// Enable Cross-Origin Resource Sharing (CORS) in your Express.js server. 
+// This will allow your React app (running on localhost:3000) to make requests to 
+// your Express server (running on localhost:5000).
+const cors = require('cors');
+app.use(cors());
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
