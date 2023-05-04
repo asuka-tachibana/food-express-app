@@ -7,7 +7,7 @@ function Menu() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axiosInstance.get('http://localhost:5000/menu')
+    axiosInstance.get('/menu')
       .then(res => {
         setData(res.data);
       })

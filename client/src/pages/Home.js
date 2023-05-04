@@ -7,9 +7,11 @@ function Home() {
   return (
     <div className='home'>
       <div className='headerContainer'><h1>Home</h1>
-      <p>Food Corner</p>
-     <Link to='/menu'> <button>
-        Order Now</button></Link></div> 
+        <p>Food Corner</p>
+        <Link to='/menu'> 
+          <button>Order Now</button>
+        </Link>
+      </div> 
     </div>
   )
 }
