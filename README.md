@@ -1,4 +1,4 @@
-# Food Order App
+# Food Express Order App
 
 This application is designed to help users order food online. It's built using ReactJS for the client side, ExpressJS for the server side, and MongoDB for the database.
 
